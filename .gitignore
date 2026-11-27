@@ -1,0 +1,25 @@
+# Python bytecode and packaging outputs
+__pycache__/
+*.py[cod]
+*.egg-info/
+/build/
+/dist/
+/wheels/
+
+# Local environment and credentials
+/.venv
+.env
+.env.*
+!.env.example
+.pypirc
+
+# Test, lint and coverage outputs
+.pytest_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+/htmlcov/
+/coverage.xml
+
+# Private sample documents, conversion outputs and working notes
+/.local/
