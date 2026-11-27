@@ -7,6 +7,7 @@ class FileFormat(StrEnum):
     TEXT = "txt"
     EPUB = "epub"
     DOCX = "docx"
+    ODT = "odt"
     PDF = "pdf"
     DJVU = "djvu"
     MARKDOWN = "md"
