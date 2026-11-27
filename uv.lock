@@ -124,6 +124,9 @@ dev = [
     { name = "ruff" },
     { name = "ty" },
 ]
+test = [
+    { name = "pytest" },
+]
 
 [package.metadata]
 
@@ -133,3 +136,4 @@ dev = [
     { name = "ruff", specifier = ">=0.17.6" },
     { name = "ty", specifier = ">=0.0.112" },
 ]
+test = [{ name = "pytest", specifier = ">=9.2.0" }]

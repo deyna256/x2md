@@ -24,8 +24,9 @@ line-length = 100
 select = ["E", "W", "F", "I", "B", "C4", "UP", "SIM", "RUF"]
 
 [dependency-groups]
+test = ["pytest>=9.2.0"]
 dev = [
-    "pytest>=9.2.0",
+    { include-group = "test" },
     "ruff>=0.17.6",
     "ty>=0.0.112",
 ]

@@ -18,13 +18,12 @@ jobs:
         with:
           version: "0.13.10"
           python-version: ${{ matrix.python }}
-      - run: uv sync --locked
       - if: matrix.python == '3.12'
         run: |
           uv run --locked ruff format --check .
           uv run --locked ruff check .
           uv run --locked ty check
-      - run: uv run --locked pytest
+      - run: uv run --locked --no-dev --group test pytest
       - if: matrix.python == '3.12'
         run: |
           uv build
