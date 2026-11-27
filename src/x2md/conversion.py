@@ -1,16 +1,24 @@
 """Dispatch conversion requests to built-in format handlers."""
 
 from collections.abc import Generator, Iterable, Iterator
+from functools import partial
 from os import PathLike
 from pathlib import Path
 from typing import BinaryIO
 
 from ._handlers import Handler
+from ._xberg import convert_document
 from .document import MarkdownChunk, MarkdownDocument
 from .errors import UnsupportedFormatError
 from .formats import FileFormat, Language, OCRMode
 
-_HANDLERS: dict[FileFormat, Handler] = {}
+_HANDLERS: dict[FileFormat, Handler] = {
+    FileFormat.DOCX: partial(
+        convert_document,
+        format=FileFormat.DOCX,
+        mime_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    ),
+}
 
 
 type _Source = str | PathLike[str] | bytes | BinaryIO
