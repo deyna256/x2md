@@ -6,11 +6,12 @@ from pathlib import Path
 from typing import BinaryIO
 
 from ._handlers import Handler
+from ._pdf import convert_pdf
 from .document import MarkdownChunk, MarkdownDocument
 from .errors import UnsupportedFormatError
 from .formats import FileFormat, Language, OCRMode
 
-_HANDLERS: dict[FileFormat, Handler] = {}
+_HANDLERS: dict[FileFormat, Handler] = {FileFormat.PDF: convert_pdf}
 
 
 type _Source = str | PathLike[str] | bytes | BinaryIO

@@ -23,6 +23,10 @@ jobs:
           uv run --locked ruff format --check .
           uv run --locked ruff check .
           uv run --locked ty check
+      - name: Install English OCR data
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y tesseract-ocr-eng
       - run: uv run --locked --no-dev --group test pytest
       - if: matrix.python == '3.12'
         run: |
