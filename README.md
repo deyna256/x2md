@@ -1,7 +1,7 @@
 # x2md
 
 Python library for converting documents and ebooks to Markdown. The public API
-is in development. This checkout has no built-in format handlers yet.
+is in development. EPUB conversion uses the built-in Xberg handler.
 
 ## Python API
 
@@ -16,6 +16,9 @@ Pass a path, bytes or a binary stream as the source. Supply the input format
 explicitly with `FileFormat`. The OCR options are optional and default to
 `ocr=OCRMode.AUTO` and `ocr_languages=()`. A format without a handler raises
 `UnsupportedFormatError` when conversion starts.
+
+The EPUB handler returns chapters in the book's reading order without OCR. It
+raises `UnsupportedOCRModeError` if you request `OCRMode.FORCE`.
 
 ## Development
 
